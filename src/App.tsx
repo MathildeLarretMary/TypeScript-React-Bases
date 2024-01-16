@@ -1,24 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// permet la création de Routes
+// viens de ---> npm i react-router-dom@latest
+import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
-function App() {
+import './App.css';
+import Posts from './Layout/Posts';
+import Post from './Layout/Post';
+
+
+function App () {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* Créé le Browser des routes */}
+      <BrowserRouter>
+        {/* Créé les routes */}
+        <Routes>
+          {/* Créé une route au path '/' qui va render la page Posts*/}
+          <Route path='/' element={<Posts/>}/>
+          {/* Créé une route au path '/:id' qui va render la page Post*/}
+          <Route path='/:id' element={<Post/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
